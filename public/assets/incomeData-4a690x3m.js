@@ -1,0 +1,1 @@
+var e=[`Sale`,`Rental`,`Booking`,`Other`],t=[`Product Sales`,`Equipment Rental`,`Booking Advance`,`Service Income`,`Other Income`],n=[`Cash`,`Bank Transfer`,`Card`,`Online Payment`,`Cheque`],r=[`Paid`,`Partial`,`Pending`,`Overdue`];export{e as i,n,r,t};

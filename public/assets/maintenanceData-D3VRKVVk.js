@@ -1,0 +1,1 @@
+var e=[`Scheduled`,`In Progress`,`Completed`,`On Hold`,`Cancelled`],t=[`Repair`,`Preventive Maintenance`,`Service`,`Inspection`,`Replacement`,`Cleaning`,`Calibration`],n=[`Low`,`Medium`,`High`,`Critical`],r=[`Maintenance Team`,`Yard Inspector`,`External Contractor`];export{t as i,e as n,r,n as t};

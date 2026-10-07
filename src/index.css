@@ -1,0 +1,275 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+
+  /* RN Trading Lanka logo red */
+  --color-brand-50: #fef2f2;
+  --color-brand-100: #fde4e2;
+  --color-brand-200: #fbcdc9;
+  --color-brand-300: #f7a7a0;
+  --color-brand-400: #e5483d;
+  --color-brand-500: #c8211a;
+  --color-brand-600: #a81b15;
+  --color-brand-700: #8b1813;
+  --color-brand-800: #731814;
+  --color-brand-900: #611815;
+  --color-brand-950: #350806;
+
+  /* RN Trading Lanka logo gold */
+  --color-gold-50: #fdf9ec;
+  --color-gold-100: #faefc9;
+  --color-gold-200: #f4dd8f;
+  --color-gold-300: #eec95a;
+  --color-gold-400: #e6b634;
+  --color-gold-500: #d4a017;
+  --color-gold-600: #b07f10;
+  --color-gold-700: #8c6211;
+  --color-gold-800: #744f15;
+  --color-gold-900: #624217;
+
+  /* Logo charcoal */
+  --color-sidebar: #151515;
+  --color-sidebar-hover: #262626;
+  --color-sidebar-active: #a81b15;
+
+  --color-surface: #ffffff;
+  --color-surface-muted: #f8fafc;
+  --color-border: #e2e8f0;
+  --color-muted: #64748b;
+  --color-success: #059669;
+  --color-warning: #d97706;
+  --color-danger: #dc2626;
+  --color-info: #0284c7;
+}
+
+:root {
+  --bt-primary: var(--color-brand-500);
+  --bt-primary-hover: var(--color-brand-600);
+  --bt-bg: #f1f5f9;
+  --bt-surface: #ffffff;
+  --bt-surface-muted: #f8fafc;
+  --bt-border: #e2e8f0;
+  --bt-text: #0f172a;
+  --bt-text-muted: #64748b;
+  --bt-success: #059669;
+  --bt-warning: #d97706;
+  --bt-danger: #dc2626;
+  --bt-info: #0284c7;
+  --bt-radius: 0.75rem;
+  --bt-radius-sm: 0.5rem;
+  --bt-focus: 0 0 0 3px rgb(200 33 26 / 0.35);
+  --bt-page-gap: 1.5rem;
+}
+
+html.dark {
+  --bt-bg: #0b1220;
+  --bt-surface: #0f172a;
+  --bt-surface-muted: #1e293b;
+  --bt-border: #1e293b;
+  --bt-text: #e2e8f0;
+  --bt-text-muted: #94a3b8;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  background: var(--bt-bg);
+  color: var(--bt-text);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-brand-500);
+  outline-offset: 2px;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 999px;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #475569;
+}
+
+@layer utilities {
+  .card {
+    @apply bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl shadow-sm;
+  }
+
+  .page-shell {
+    @apply mx-auto w-full max-w-[1600px] space-y-6;
+  }
+
+  .page-title {
+    @apply font-display text-xl sm:text-2xl font-bold text-slate-900 dark:text-white tracking-tight leading-tight;
+  }
+
+  .page-subtitle {
+    @apply text-sm text-slate-500 dark:text-slate-400 mt-1 max-w-3xl;
+  }
+
+  .page-toolbar {
+    @apply flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between;
+  }
+
+  .page-actions {
+    @apply flex flex-wrap items-center gap-2 shrink-0 sm:justify-end;
+  }
+
+  .section-title {
+    @apply font-display text-lg font-semibold text-slate-900 dark:text-white;
+  }
+
+  .helper-text {
+    @apply text-xs text-slate-500 dark:text-slate-400 mt-1;
+  }
+
+  .error-text {
+    @apply text-xs text-red-600 dark:text-red-400 mt-1;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg font-medium text-sm px-4 py-2.5 transition-colors
+      disabled:opacity-50 disabled:pointer-events-none
+      focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500/40
+      bg-brand-500 hover:bg-brand-600 text-white;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg font-medium text-sm px-4 py-2.5 transition-colors
+      disabled:opacity-50 disabled:pointer-events-none
+      focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500/40
+      bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg font-medium text-sm px-4 py-2.5 transition-colors
+      disabled:opacity-50 disabled:pointer-events-none
+      focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500/40
+      bg-transparent border border-slate-300 dark:border-slate-600 text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-800;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg font-medium text-sm px-4 py-2.5 transition-colors
+      disabled:opacity-50 disabled:pointer-events-none
+      focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500/40
+      bg-transparent text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800;
+  }
+
+  .btn-danger {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg font-medium text-sm px-4 py-2.5 transition-colors
+      disabled:opacity-50 disabled:pointer-events-none
+      focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500/40
+      bg-red-600 hover:bg-red-700 text-white;
+  }
+
+  .btn-success {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg font-medium text-sm px-4 py-2.5 transition-colors
+      disabled:opacity-50 disabled:pointer-events-none
+      focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500/40
+      bg-emerald-600 hover:bg-emerald-700 text-white;
+  }
+
+  .input-field {
+    @apply w-full rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 px-3 py-2.5 text-sm
+      text-slate-900 dark:text-slate-100 placeholder:text-slate-400
+      focus:outline-none focus:ring-2 focus:ring-brand-500/40 focus:border-brand-500
+      disabled:opacity-60 disabled:cursor-not-allowed;
+  }
+
+  .input-field-error {
+    @apply border-red-400 focus:border-red-500 focus:ring-red-500/30;
+  }
+
+  .label {
+    @apply block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1.5;
+  }
+
+  .table-wrap {
+    @apply -mx-1 overflow-x-auto;
+  }
+
+  .truncate-cell {
+    @apply max-w-[12rem] truncate sm:max-w-[16rem];
+  }
+}
+
+@media print {
+  @page {
+    size: A4;
+    margin: 15mm;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  .print-only {
+    display: block !important;
+  }
+
+  body {
+    background: white !important;
+    color: black !important;
+  }
+
+  aside,
+  header,
+  .no-print {
+    display: none !important;
+  }
+
+  main {
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .invoice-print,
+  .invoice-sheet,
+  .rental-agreement {
+    width: auto !important;
+    min-height: 0 !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+    border: none !important;
+    border-radius: 0 !important;
+    background: white !important;
+    color: black !important;
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+
+  .invoice-sheet tr,
+  .rental-agreement tr {
+    break-inside: avoid;
+  }
+}
